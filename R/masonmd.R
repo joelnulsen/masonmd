@@ -358,6 +358,9 @@ get.longest.cds <- function(gene_id, ref) # combine
     } else if (ref == 36) {
         tx <- tx36[tx36$GENEID == gene_id,]
         cds <- cds36[cds36$geneid == gene_id,]
+    } else if (ref == 38) {
+        tx <- tx38[tx38$GENEID == gene_id,]
+        cds <- cds38[cds38$geneid == gene_id,]
     }
     # get the longest cds
     cds <- cds[which.max(cds$width),]
@@ -521,6 +524,8 @@ get_tx_seq <- function(tx_pos, ncbi_build)
         genome <- genome37
     } else if (ncbi_build == 36) {
         genome <- genome36
+    } else if (ncbi_build == 38) {
+        genome <- genome38
     } else {
         warning("Unrecognized reference/NCBI_build")
     }
